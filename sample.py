@@ -41,6 +41,9 @@ class simpleapp_tk(Tkinter.Tk):
         # self.labelVariable.set( self.entryVariable.get()+" (You clicked the button)" )
         # self.entry.focus_set()
         # self.entry.selection_range(0, Tkinter.END)
+        root = tkinter.Tk()
+        root.withdraw()
+        file_path = filedialog.askopenfilename()
         filename = askopenfilename(parent=self)
         proc = subprocess.Popen("python detect_walking2.py "+ filename+ " | python predict.py", stdout=subprocess.PIPE, shell=True)
         for line in proc.stdout:
